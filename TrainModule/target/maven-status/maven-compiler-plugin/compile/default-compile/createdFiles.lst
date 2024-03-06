@@ -1,0 +1,7 @@
+com\example\TrainModule\controller\TrainController.class
+com\example\TrainModule\exception\TrainNotFoundException.class
+com\example\TrainModule\service\TrainService.class
+com\example\TrainModule\TrainModuleApplication.class
+com\example\TrainModule\SwaggerConfiguration.class
+com\example\TrainModule\entity\Train.class
+com\example\TrainModule\repository\TrainInterface.class

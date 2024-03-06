@@ -1,0 +1,57 @@
+-------------------------------------------------------------------------------
+Test set: com.example.TrainModule.TrainModuleApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 1, Errors: 5, Skipped: 0, Time elapsed: 9.835 s <<< FAILURE! -- in com.example.TrainModule.TrainModuleApplicationTests
+com.example.TrainModule.TrainModuleApplicationTests.testDeleteTrain -- Time elapsed: 0.118 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.TrainModule.service.TrainService.deleteTrain(String)" because "this.trainService" is null
+	at com.example.TrainModule.controller.TrainController.deleteTrain(TrainController.java:95)
+	at com.example.TrainModule.TrainModuleApplicationTests.testDeleteTrain(TrainModuleApplicationTests.java:202)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.TrainModule.TrainModuleApplicationTests.createTrain_ValidTrain_ReturnsCreatedTrain -- Time elapsed: 0.037 s <<< FAILURE!
+Wanted but not invoked:
+trainInterface.save(
+    <any com.example.TrainModule.entity.Train>
+);
+-> at com.example.TrainModule.TrainModuleApplicationTests.createTrain_ValidTrain_ReturnsCreatedTrain(TrainModuleApplicationTests.java:87)
+Actually, there were zero interactions with this mock.
+
+	at com.example.TrainModule.TrainModuleApplicationTests.createTrain_ValidTrain_ReturnsCreatedTrain(TrainModuleApplicationTests.java:87)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.TrainModule.TrainModuleApplicationTests.getAllTrains_ReturnsListOfTrains -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.TrainModule.service.TrainService.getAllTrains()" because "this.trainService" is null
+	at com.example.TrainModule.controller.TrainController.getAllTrains(TrainController.java:42)
+	at com.example.TrainModule.TrainModuleApplicationTests.getAllTrains_ReturnsListOfTrains(TrainModuleApplicationTests.java:68)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.TrainModule.TrainModuleApplicationTests.testUpdateTrain -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.TrainModule.service.TrainService.updateTrain(String, com.example.TrainModule.entity.Train)" because "this.trainService" is null
+	at com.example.TrainModule.controller.TrainController.updateTrain(TrainController.java:85)
+	at com.example.TrainModule.TrainModuleApplicationTests.testUpdateTrain(TrainModuleApplicationTests.java:173)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.TrainModule.TrainModuleApplicationTests.getTrainOfBooking_ExistingTrain_ReturnsTrain -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.TrainModule.service.TrainService.getTrainByIds(String)" because "this.trainService" is null
+	at com.example.TrainModule.controller.TrainController.getTrainOfBooking(TrainController.java:49)
+	at com.example.TrainModule.TrainModuleApplicationTests.getTrainOfBooking_ExistingTrain_ReturnsTrain(TrainModuleApplicationTests.java:107)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.TrainModule.TrainModuleApplicationTests.testSearchTrains -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.TrainModule.service.TrainService.searchTrain(String, String, java.util.Date)" because "this.trainService" is null
+	at com.example.TrainModule.controller.TrainController.searchTrains(TrainController.java:65)
+	at com.example.TrainModule.TrainModuleApplicationTests.testSearchTrains(TrainModuleApplicationTests.java:145)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
