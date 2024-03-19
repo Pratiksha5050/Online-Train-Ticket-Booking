@@ -1,0 +1,120 @@
+<div class="mat-elevation-z8">
+  <h3>All Scheduled Trains</h3>
+  <div class="export-button">
+    <button mat-raised-button color="primary" (click)="exportToExcel()">Export to Excel</button>
+  </div>
+  <table  #table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+   
+      <!-- Columns definition here -->
+      <ng-container matColumnDef="trainNo">
+        <th mat-header-cell *matHeaderCellDef> Train Number </th>
+        <td mat-cell *matCellDef="let train"> {{ train.trainNo }} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="trainName">
+        <th mat-header-cell *matHeaderCellDef> Train Name </th>
+        <td mat-cell *matCellDef="let train"> {{ train.trainName }} </td>
+        
+      </ng-container>
+  
+      <ng-container matColumnDef="sourceStation">
+          <th mat-header-cell *matHeaderCellDef> Source Station </th>
+          <td mat-cell *matCellDef="let train"> {{ train.sourceStation }} </td>
+          
+        </ng-container>
+  
+        <ng-container matColumnDef="destinationStation">
+          <th mat-header-cell *matHeaderCellDef>Destination Station  </th>
+          <td mat-cell *matCellDef="let train"> {{ train.destinationStation }} </td>
+          
+        </ng-container>
+  
+        <ng-container matColumnDef="departureTimes">
+          <th mat-header-cell *matHeaderCellDef>Departure Time  </th>
+          <td mat-cell *matCellDef="let train"> {{ train.departureTimes }} </td>
+          
+        </ng-container>
+  
+        <ng-container matColumnDef="arrivalTimes">
+          <th mat-header-cell *matHeaderCellDef> Arrival Time </th>
+          <td mat-cell *matCellDef="let train"> {{ train.arrivalTimes }} </td>
+          
+        </ng-container>
+  
+        <ng-container matColumnDef="dates">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let train"> {{ train.dates | date:'shortDate'}} </td>
+          
+        </ng-container>
+  
+        <ng-container matColumnDef="seatsInSleeperClass">
+          <th mat-header-cell *matHeaderCellDef> Available Seats In Sleeper Coach </th>
+          <td mat-cell *matCellDef="let train"> {{ train.seatsInSleeperClass }} </td>
+          
+        </ng-container>
+
+
+        <ng-container matColumnDef="seatsInFirstClassClass">
+          <th mat-header-cell *matHeaderCellDef> Available Seats In First Coach </th>
+          <td mat-cell *matCellDef="let train"> {{ train.seatsInFirstClassClass }} </td>
+          
+        </ng-container>
+
+        <ng-container matColumnDef="seatsInSecondClassClass">
+          <th mat-header-cell *matHeaderCellDef>Available Seats In Second Coach </th>
+          <td mat-cell *matCellDef="let train"> {{ train.seatsInSecondClassClass }} </td>
+          
+        </ng-container>
+
+        <ng-container matColumnDef="seatsInThirdClassClass">
+          <th mat-header-cell *matHeaderCellDef> Available Seats In Third Coach </th>
+          <td mat-cell *matCellDef="let train"> {{ train.seatsInThirdClassClass }} </td>
+        </ng-container>
+        <!-- <ng-container matColumnDef="firstClassPrice">
+          <th mat-header-cell *matHeaderCellDef> Price of First Coach </th>
+          <td mat-cell *matCellDef="let train"> {{ train.firstClassPrice }} </td>
+          
+        </ng-container>
+        <var><ng-container matColumnDef="secondClassPrice">
+          <th mat-header-cell *matHeaderCellDef> Price of Second Coach </th>
+          <td mat-cell *matCellDef="let train"> {{ train.secondClassPrice }} </td>
+          
+        </ng-container>
+        <ng-container matColumnDef="thirdClassPrice">
+          <th mat-header-cell *matHeaderCellDef> Price of Third Coach </th>
+          <td mat-cell *matCellDef="let train"> {{ train.thirdClassPrice }} </td>
+          
+        </ng-container>
+        <ng-container matColumnDef="sleeperCoachPrice">
+          <th mat-header-cell *matHeaderCellDef> Price of Sleeper Coach</th>
+          <td mat-cell *matCellDef="let train"> {{ train.sleeperCoachPrice }} </td>
+        </ng-container> -->
+      
+      <!-- </var> -->
+  
+      <!-- Add other column definitions here -->
+      <ng-container matColumnDef="actions" >
+        <th mat-header-cell *matHeaderCellDef> Actions</th>
+        <td mat-cell *matCellDef="let train" style="text-align: center;">
+          <!-- Add Update and Delete buttons at the end of the row -->
+          <button mat-icon-button class="edit-button" (click)="openUpdateDialog(train)">
+            <mat-icon >edit</mat-icon>
+          </button>
+          <button mat-icon-button class="delete-button" (click)="confirmDelete(train.trainNo)">
+            <mat-icon >delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    <!-- Paginator -->
+    <mat-paginator [length]="paginator.length" [pageSize]="paginator.pageSize" [pageSizeOptions]="[5]" [pageSize]="5" (page)="onPageChange($event)"></mat-paginator>
+    
+  </div>
+  
+   
+    
+    

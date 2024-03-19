@@ -1,0 +1,116 @@
+
+table {
+    border-collapse: collapse ;
+  padding-top: 10%;
+    width: 70%;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+ 
+  }
+
+  .export-button {
+    /* margin-bottom: 10px; Optional: Add some spacing between the button and the heading */
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  
+  th {
+   /* Lighter background color for header */
+    border: 1px solid black; /* Border for header cells */
+    
+    padding: 10px;
+    text-align: center;
+    width: 1%; /* Equal width for each column (100% / 16 columns) */
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+    font-weight: bolder;
+  }
+  
+  /* Style cells with borders and equal width */
+  td {
+    border: 1px solid black; /* Border for cells */
+    padding: 6px;
+    text-align: left;
+    width: 3%; /* Equal width for each column (100% / 16 columns) */
+    font-family: 'Playfair Display', serif;
+   font-size:medium;
+  }
+  
+ /* Hover Effect */
+tr:hover {
+    background-color: gray;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Paginator Styles */
+  .mat-paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+  th, td {
+    padding: 8px;
+  }
+
+  .mat-elevation-z8 {
+    overflow-x: auto; /* Add horizontal scroll for small screens */
+    margin-right: 10px;
+  }
+}
+
+.mat-paginator-page-size {
+    display: none; /* Optional: Hide page size options */
+  }
+
+
+  /* Edit button styles */
+.edit-button {
+  background-color: #4CAF50; /* Green color */
+  color: #ffffff; /* White text color */
+  border-radius: 50%; /* Circular border */
+  padding: 1px; /* Adjust padding as needed */
+  margin-right: 5px; /* Add some spacing between buttons */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Circular border around Edit button on hover */
+.edit-button:hover {
+  background-color: #45a049; /* Darker shade of green on hover */
+  border: 2px solid #45a049; /* Border color on hover */
+}
+
+/* Delete button styles */
+.delete-button {
+  background-color: #f44336; /* Red color */
+  color: #ffffff; /* White text color */
+  border-radius: 50%; /* Circular border */
+  padding: 1px; /* Adjust padding as needed */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Circular border around Delete button on hover */
+.delete-button:hover {
+  background-color: #d32f2f; /* Darker shade of red on hover */
+  border: 2px solid #d32f2f; /* Border color on hover */
+}
+
+/* Center the h2 tag and add a white background */
+h3 {
+  text-align: center; /* Center text */
+  background-color: #ffffff; /* White background color */
+  padding: 6px; /* Add padding for spacing */
+  margin-top: 1%;
+}
+input.mat-mdc-input-element::-webkit-calendar-picker-indicator {
+  display: block;
+
+}

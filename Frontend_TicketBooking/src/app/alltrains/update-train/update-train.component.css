@@ -1,0 +1,14 @@
+input.mat-mdc-input-element::-webkit-calendar-picker-indicator {
+    display: block;
+
+  }
+  
+  h2{
+    text-align: center;
+  }
+  .mat-form-field {
+    margin-bottom: 20px;
+    color: black;
+  }
+
+  

@@ -1,0 +1,30 @@
+<form (ngSubmit)="login()" [formGroup]="loginForm" class="form-container">
+    <h2>Login</h2>
+  
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="userName" placeholder="Enter Username">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Enter Password">
+      </mat-form-field>
+    </div>
+    <!-- <div class="help-text" style="text-align: right;">
+        <p><a href="#">forget password</a></p>
+    </div> -->
+
+    <div class="form-row button-container">
+      <button  mat-raised-button color="primary" type="submit">Login</button>
+    </div>
+
+    <div class="help-text">
+        <p>Need Help? <a href="/signup">Create a new account</a></p>
+    </div>
+
+  </form>
+  

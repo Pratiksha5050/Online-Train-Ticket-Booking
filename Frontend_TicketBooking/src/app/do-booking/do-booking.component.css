@@ -1,0 +1,141 @@
+.container {
+    width: 200vh;
+    padding-top: 100px;
+    /* margin: auto;
+    display: flex;
+    justify-content: center; */
+  }
+   
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+   
+  .form-field {
+    width: 100%; /* Adjust as needed based on your design */
+  }
+   
+  .flightDataCard{
+      max-width: 888px;
+      width: 100%;
+      margin-top: 30px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+  }
+   
+  .passengerCard{
+      max-width: 700px;
+      width: 100%;
+      margin-top: 20px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+  }
+   /* Add this styling to your component's CSS file or in your global styles */
+
+/* Styling for the mat-step container */
+mat-step {
+    margin-bottom: 20px; /* Adjust the spacing between steps */
+  }
+  
+  
+  /* Styling for the form container within mat-step */
+  mat-step form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Styling for form controls (labels and inputs) */
+  mat-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  
+  /* Styling for the button within the form */
+  button {
+    margin-top: 10px;
+  }
+  
+  /* Optional: Add some additional styling for a cleaner appearance */
+  mat-step:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Optional: Adjust the background color or border of the active step */
+  mat-horizontal-stepper mat-step-header[ng-reflect-state="active"] {
+    background-color: #3498db; /* Example color, adjust as needed */
+    border: 2px solid #3498db; /* Example color, adjust as needed */
+    color: white; /* Example color, adjust as needed */
+  }
+  /* Add the following styles to your component's CSS file or in your global styles */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 16px; /* Adjust the margin as needed */
+  }
+  
+  .form-column {
+    flex: 1;
+    margin-right: 10px; /* Adjust the margin between columns as needed */
+  }
+  
+  select {
+    width: 100%;
+    height: 20%;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  /* Add appropriate styling for your containers */
+.container {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Style for Train Information and Passenger Information sections */
+.information-section {
+  margin-bottom: 20px;
+}
+
+/* Style for the "Your Price of Train Travel is" section */
+.price-section {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4CAF50; /* Green color, adjust as needed */
+}
+
+/* Center the content */
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add margin between sections */
+.container:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+  

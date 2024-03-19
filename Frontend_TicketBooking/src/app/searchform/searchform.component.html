@@ -1,0 +1,43 @@
+<div id="overlayForm">
+  <h2 style="align-items: center;">Search</h2>
+
+  <form [formGroup]="searchForm" (ngSubmit)="search()">
+    <div class="form-group">
+      <label for="sourceStation">Source Station</label>
+
+
+      <select id="sourceStation" class="select-f" formControlName="sourceStation" required>
+        <option *ngFor="let station of sourceStations" [value]="station">{{ station }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="destinationStation">Destination Station</label>
+
+      <select id="destinationStation" class="select-f" formControlName="destinationStation" required>
+        <option *ngFor="let city of destinationStations" [value]="city">{{ city }}</option>
+      </select>
+
+    </div>
+
+    <div class="form-group">
+      <label for="dates">Date</label>
+      <input type="date" id="dates" formControlName="dates" required [min]="minDate" />
+    </div>
+    <!-- <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dates" placeholder=" Select Date" required [min]="minDate" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div> -->
+
+
+    <!-- <button type="submit" [disabled]="!searchForm.valid">Search</button> -->
+    <div class="form-row button-container">
+      <button [disabled]="!searchForm.valid" mat-raised-button color="primary" type="submit">Search<mat-icon>search</mat-icon></button>
+    </div>
+  </form>
+
+</div>

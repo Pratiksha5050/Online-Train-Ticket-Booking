@@ -1,0 +1,58 @@
+<!-- <form [formGroup]="pnrForm" (ngSubmit)="getBookingInfo()" class="container">
+    <label for="pnr">Enter PNR Number:</label>
+    <input type="text" id="pnr" formControlName="pnrNumber" />
+    <button type="submit">Get Booking Info</button>
+</form> -->
+
+
+
+<form (ngSubmit)="getBookingInfo()" [formGroup]="pnrForm" class="form-container">
+    <h2>View PNR Status</h2>
+  
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>PNR Number</mat-label>
+        <input matInput formControlName="pnrNumber" placeholder="Enter PNR">
+      </mat-form-field>
+    </div>
+    <div class="form-row button-container">
+      <button  mat-raised-button color="primary" type="submit">Search<mat-icon>search</mat-icon></button>
+    </div>
+
+
+  </form>
+  
+  <!-- Display booking information -->
+  <div *ngIf="bookingInfo">
+    <h2 style="color: black;background-color: aliceblue;">Booking Information for PNR {{ bookingInfo.pnr }}</h2>
+    <table>
+      <tr>
+        <th>Total Seats</th>
+        <th>Train Name</th>
+        <th>Source Station</th>
+        <th>Destination Station</th>
+        <th>Departure Time</th>
+        <th>User Name</th>
+        <th>Class Type</th>
+        <th>Travel Fare</th>
+        <th>Date</th>
+       
+      </tr>
+      <tr>
+        <td>{{ bookingInfo.totalSeats }}</td>
+        <td>{{ bookingInfo.train.trainName }}</td>
+        <td>{{bookingInfo.train.sourceStation}}</td>
+        <td>{{bookingInfo.train.destinationStation}}</td>
+        <td>{{bookingInfo.train.departureTimes}}</td>
+        <td>{{ bookingInfo.userName }}</td>
+        <td>{{bookingInfo.classType }}</td>
+        <td>{{pricemanage}}</td>
+        <td>{{formattedDate}}</td>
+      </tr>
+    </table>
+  </div>
+  
+
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>

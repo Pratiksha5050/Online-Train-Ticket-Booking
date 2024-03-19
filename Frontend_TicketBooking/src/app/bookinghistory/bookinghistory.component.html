@@ -1,0 +1,80 @@
+
+<div *ngFor="let booking of bookingHistory" class="booking-block">
+    <h3 class="pnr-heading" style="text-align: center;">PNR: {{ booking.pnr }}</h3>
+    <div class="grid-container">
+        <!-- Display train info -->
+        <div class="train-info">
+            <div class="train-data">
+                <p><strong>Total Seats:</strong> {{ booking.totalSeats }}</p>
+                <p><strong>User Name:</strong> {{ booking.userName }}</p>
+                <p><strong>Class Type:</strong> {{ booking.classType}} Class</p>
+                <p><strong>Price:</strong> Rs.{{ booking.price }}</p>
+                <p><strong>Date:</strong>{{booking.dates}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <!-- Display train info -->
+        <div *ngFor="let trainInfo of [booking.train]" class="train-info">
+            <div class="train-data">
+                <p><strong>Train Name:</strong> {{ trainInfo.trainName }}</p>
+                <p><strong>Source Station:</strong> {{ trainInfo.sourceStation }}</p>
+                <p><strong>Destination Station:</strong> {{ trainInfo.destinationStation }}</p>
+                <p><strong>Departure Time:</strong> {{ trainInfo.departureTimes }}</p>
+                <p><strong>Arrival Time:</strong> {{ trainInfo.arrivalTimes }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="grid-container">
+        <!-- Display user info in table format -->
+        <table class="user-info-table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of booking.userInfo;let j = index">
+                    <td> {{ j + 1 }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.age }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>
+                    <div *ngIf="isDateGreaterThanToday(booking.dates)" class="cancel-button-container">
+                        <!-- <button mat-raised-button color="warn" (click)="cancelBooking(booking.pnr,j+1)"><mat-icon>delete</mat-icon></button> -->
+                        <button mat-icon-button color="warn" (click)="cancelBooking(booking.pnr,j+1)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </td>
+                </tr>
+                
+            </tbody>
+            <br>
+            <div class="download-button-container">
+                <button mat-raised-button color="primary" (click)="downloadBookingAsPDF(booking)">
+                    Download
+                    <mat-icon>save_alt</mat-icon>
+                </button>
+            </div>
+            <!-- <button mat-raised-button color="primary" (click)="downloadBookingAsPDF(booking)">Download<mat-icon>save_alt</mat-icon></button> -->
+        </table>
+    </div>
+    <!-- Display other booking details here -->
+    <!-- Cancel button conditionally displayed -->
+    
+</div>
+
+
+<!-- booking-history.component.html -->
+<div *ngIf="bookingHistory.length === 0;" class="no-bookings-message">
+    <p>No bookings found for this user. Start your journey by making a reservation!</p>
+  </div>
+  
+
+  
