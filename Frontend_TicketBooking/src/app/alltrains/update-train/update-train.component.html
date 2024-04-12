@@ -1,0 +1,107 @@
+<!-- train-update.component.html -->
+<h2 mat-dialog-title>Update Train</h2>
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <mat-label>Train No</mat-label>
+      <input matInput placeholder="Train No" formControlName="trainNo">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Train Name</mat-label>
+      <input matInput placeholder="Train Name" formControlName="trainName" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Source Station</mat-label>
+      <input matInput placeholder="Source Station" formControlName="sourceStation" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Destination Station</mat-label>
+      <input matInput placeholder="Destination Station" formControlName="destinationStation" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Departure Time</mat-label>
+      <input matInput placeholder="Departure Times" formControlName="departureTimes" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Arrival Time</mat-label>
+      <input matInput placeholder="Arrival Times" formControlName="arrivalTimes" />
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+      <mat-label>Date</mat-label>
+       <input matInput placeholder="Date" formControlName="dates" />
+    </mat-form-field> -->
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input type="date" matInput placeholder="Date" formControlName="dates" />
+    </mat-form-field>
+    
+
+    <!-- <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dates" placeholder="Date" /> -->
+      <!-- <input matInput [matDatepicker]="picker" formControlName="dates" placeholder="Date" [matDatepicker]="picker" 
+      [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" (dateChange)="onDateChange($event)" [matDatepicker]="picker" (opened)="onPickerOpened()" 
+      [matDatepicker]="picker" (closed)="onPickerClosed()" /> -->
+      <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> -->
+    
+
+    <mat-form-field>
+      <mat-label>Total Coach</mat-label>
+      <input matInput placeholder="Total Coach" formControlName="totalCoach" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seats in Sleeper Coaches</mat-label>
+      <input matInput placeholder="Seats in Sleeper Coach" formControlName="seatsInSleeperClass" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seats in First Class</mat-label>
+      <input matInput placeholder="Seats in First Class" formControlName="seatsInFirstClassClass" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seats in Second Class</mat-label>
+      <input matInput placeholder="Seats in Second Class" formControlName="seatsInSecondClassClass" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seats in Third Class</mat-label>
+      <input matInput placeholder="Seats in Third Class" formControlName="seatsInThirdClassClass" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price of First Class Coach</mat-label>
+      <input matInput placeholder="Price of First Class" formControlName="firstClassPrice" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price of Second Class Coach</mat-label>
+      <input matInput placeholder="Price of Second Class" formControlName="secondClassPrice" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price of Third Class Coach</mat-label>
+      <input matInput placeholder="Price of Third Class" formControlName="thirdClassPrice" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price of Sleeper Class Coach</mat-label>
+      <input matInput placeholder="Price of Sleeper Class" formControlName="sleeperCoachPrice" />
+    </mat-form-field>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button type="button" (click)="onClose()">Cancel</button>
+    <button mat-button type="submit" color="primary">{{data ? 'Update':'Save'}}</button>
+  </mat-dialog-actions>
+</form>

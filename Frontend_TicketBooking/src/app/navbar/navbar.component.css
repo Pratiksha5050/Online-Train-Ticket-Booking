@@ -1,0 +1,124 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.logo-container img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px; /* Adjust spacing between image and text */
+  border-radius: 50%; /* Optional: Apply rounded corners to the image */
+}
+
+.logo-text {
+  color: #333; /* Adjust text color as needed */
+  font-weight: bold; /* Optional: Adjust font weight */
+}
+
+.navbar-brand img {
+  margin-right: 5px;
+}
+
+.logo-text {
+  margin-left: 10px; /* Adjust as needed */
+  color: #fff; /* Set the text color */
+  font-size: 18px; /* Adjust as needed */
+  font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+  /* .buttons-container a:hover {
+    color: #ffd700; 
+  } */
+  
+
+  .buttons-container .non-dropdown:hover {
+    color: yellow; /* Change the color on hover for non-dropdown links */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd; /* Default color for dropdown links on hover */
+}
+
+  
+  .buttons-container a:last-child {
+    margin-right: 0; /* Remove margin for the last link */
+  }
+  
+ 
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    font-size: 18px; 
+
+  }
+  
+  .buttons-container a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .logo-container {
+      display: none;
+    }
+  
+    .buttons-container {
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+  
+    .buttons-container a {
+      margin-right: 10px;
+    }
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff; /* Change background color to white or any solid color */
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: grey; /* Ensure background color remains opaque on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+ 

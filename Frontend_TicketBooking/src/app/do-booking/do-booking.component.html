@@ -1,0 +1,120 @@
+<!-- booking.component.html -->
+
+<mat-horizontal-stepper #stepper>
+  <!-- Step 1: Train Information -->
+  <mat-step>
+    <form [formGroup]="trainInfoForm" class="form-container">
+      <div class="form-row">
+        <div class="form-column">
+          <mat-label>Train Name</mat-label>
+          <input matInput formControlName="trainName" required />
+        </div>
+        <div class="form-column">
+          <mat-label>Source Station</mat-label>
+          <input matInput formControlName="sourceStation" required />
+        </div>
+        <div class="form-column">
+          <mat-label>Destination Station</mat-label>
+          <input matInput formControlName="destinationStation" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-column">
+          <mat-label>Date</mat-label>
+          <input matInput formControlName="dates" required />
+        </div>
+        <div class="form-column">
+          <mat-label>Class of Traveling</mat-label>
+          <mat-select style="background-color: grey;height: 40px;" formControlName="classOfTravel" required>
+            <mat-option *ngFor="let classOption of classOptions" [value]="classOption.value">
+              {{ classOption.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="trainInfoForm.get('classOfTravel').hasError('required')">
+            Class of Traveling is required
+          </mat-error>
+        </div>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" matStepperNext [disabled]="!trainInfoForm.valid">Next</button>
+      </div>
+    </form>
+
+  </mat-step>
+
+  <!-- Step 2: Passenger Information -->
+  <mat-step>
+    <form [formGroup]="passengerForm">
+      <ng-template matStepLabel>Passenger Details</ng-template>
+      <div formArrayName="passengers" class="passengerCard">
+        <div *ngFor="let passenger of passengers.controls; let i = index">
+          <div [formGroupName]="i">
+            <mat-form-field>
+              <input matInput placeholder="Name" formControlName="name" />
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="number" placeholder="Age" formControlName="age" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select formControlName="gender" required placeholder="gender" >
+                <mat-option *ngFor="let genderOption of genderOptions" [value]="genderOption.value">
+                  {{ genderOption.label }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-icon-button color="warn" *ngIf="passengers.length>1" (click)="deletePassenger(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious
+          style="margin-left: 10%; margin-right: 20%;">Back</button>
+        <button mat-raised-button color="primary" (click)="addPassenger()" [disabled]="!passengerForm.valid">Add
+          Passenger
+        </button>
+        <button mat-raised-button color="primary" style="margin-left: 25%;margin-right: 20%;"
+          [disabled]="!passengerForm.valid" matStepperNext>Next
+        </button>
+
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Step 3: Submit -->
+  <mat-step>
+    <form (ngSubmit)="submitForm()">
+      <!-- Display submitted information -->
+      <div class="container information-section">
+        <p>Train Information:</p>
+        <!-- <pre>{{ trainInfoForm.value.train | json }}</pre> -->
+        <pre>Train Name : {{this.trainName}} </pre>
+        <pre>Source Station : {{this.sourceStation}}</pre>
+        <pre>Destination Station : {{this.destinationStation}}</pre>
+        <pre>Date : {{this.dates}}</pre>
+        <pre>Departure Time: {{this.departureTimes}}</pre>
+        <pre>Arrival Time : {{this.arrivalTimes}}</pre>
+        <pre>Class Through which you choose to Travel : {{this.trainInfoForm.value.classOfTravel}} Class</pre>
+        <pre></pre>
+      </div>
+
+      <div class="container information-section">
+      <p>Passenger Information:</p>
+      <div *ngFor="let passenger of passengerForm.value.passengers  let i = index">
+        <pre>{{'Passenger ' + (i + 1) + ': ' +passenger.name}}</pre>
+        <pre>{{passenger.age}}</pre>
+        <pre>{{passenger.gender}}</pre>
+      </div>
+      </div>
+
+      <div class="container price-section center-content">
+        <p>Your Price of Train Travel is Rs.: {{price}} <span matSuffix>₹</span> </p>
+       
+      </div>
+      <div class="form-container">
+      <button  mat-raised-button color="primary" style="margin-top: 20px;" type="submit">Submit</button>
+    </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,95 @@
+<!-- booking.component.html -->
+<div>
+  <h2 style="text-align: center;">Booking Form</h2>
+
+  <table style="width: 100%;margin-bottom: 20px; border: 1px solid black ;">
+    <tr style="background-color: #f2f2f2;border: 1px solid black ">
+      <th>Train No</th>
+      <th>Train Name</th>
+      <th>Source Station</th>
+      <th>Destination Station</th>
+      <th>Departure Time</th>
+      <th>Arrival Time</th>
+      <th>Dates</th>
+      <th>Total Coach</th>
+      <th>Seats in Sleeper Class</th>
+      <th>Seats in First Class</th>
+      <th>Seats in Second Class</th>
+      <th>Seats in Third Class</th>
+      <th>First Class Price</th>
+      <th>Second Class Price</th>
+      <th>Third Class Price</th>
+      <th>Sleeper Coach Price</th>
+    </tr>
+    <tr style="background-color: #f2f2f2 " >
+      <td>{{ trainData.trainNo }}</td>
+      <td>{{ trainData.trainName }}</td>
+      <td>{{ trainData.sourceStation }}</td>
+      <td>{{ trainData.destinationStation }}</td>
+      <td>{{ trainData.departureTimes }}</td>
+      <td>{{ trainData.arrivalTimes }}</td>
+      <td>{{ trainData.dates | date }}</td>
+      <td>{{ trainData.totalCoach }}</td>
+      <td>{{ trainData.seatsInSleeperClass }}</td>
+      <td>{{ trainData.seatsInFirstClassClass }}</td>
+      <td>{{ trainData.seatsInSecondClassClass }}</td>
+      <td>{{ trainData.seatsInThirdClassClass }}</td>
+      <td>{{ trainData.firstClassPrice }}</td>
+      <td>{{ trainData.secondClassPrice }}</td>
+      <td>{{ trainData.thirdClassPrice }}</td>
+      <td>{{ trainData.sleeperCoachPrice }}</td>
+    </tr>
+  </table>
+
+  <!-- <label style="display: block; margin-bottom: 10px;">Total Seats:</label>
+  <select [(ngModel)]="selectedTotalSeats">
+    <option *ngFor="let seats of totalSeatsOptions" [value]="seats">{{ seats }}</option>
+  </select> -->
+
+
+  <div class="label-container">
+    
+      <label>Class Type:</label>
+      <select [(ngModel)]="selectedClassType">
+        <option value="Sleeper">Sleeper Class</option>
+        <option value="First">First Class</option>
+        <option value="Second">Second Class</option>
+        <option value="Third">Third Class</option>
+      </select>
+    
+
+
+    <label>Total Seats:</label>
+    <select [(ngModel)]="selectedTotalSeats" style="padding: 8px;">
+      <option *ngFor="let seats of totalSeatsOptions" [value]="seats">{{ seats }}</option>
+    </select>
+  </div>
+  <div class="justify-content-between button-container">
+    <button mat-raised-button  color="primary" type="submit" (click)="openForms()">Open Forms</button>
+  </div>
+  <!-- <button (click)="openForms()" style="color: blue;">Open Forms</button> -->
+
+  <!-- Repeat the form for each selected seat -->
+  <div *ngFor="let seat of selectedSeats; let i = index">
+    <form class="new-forms">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="passengerForms[i].name" name="name" required />
+
+      <label>Age:</label>
+      <input type="number" [(ngModel)]="passengerForms[i].age" name="age" required />
+
+      <label>Gender:</label>
+      <select [(ngModel)]="passengerForms[i].gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <hr>
+    </form>
+  </div>
+  
+  <!-- <button (click)="bookSeats()">Book</button> -->
+  <div class="justify-content-between button-container">
+    <button mat-raised-button  color="primary" type="submit" (click)="bookSeats()">Book Train</button>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<!-- search-list.component.html -->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+    
+  <h2 class="text-center mb-4"  style="color: black;">Available trains for {{ dates | date:'dd MMM yyyy' }} from  {{sourceStation }} to {{destinationStation }}</h2>
+
+    <div *ngIf="searchResults && searchResults.length > 0" class="card-deck">
+      <div *ngFor="let result of searchResults" class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ result.trainName }}</h5>
+          <p class="card-text">Train No: {{ result.trainNo }}</p>
+          <p class="card-text">Source Station: {{ result.sourceStation }}</p> 
+          <p class="card-text">Destination Station: {{ result.destinationStation }}</p>
+          <p class="card-text">Departure Time: {{ result.departureTimes }}</p>
+          <p class="card-text">Arrival Time: {{ result.arrivalTimes }}</p>
+          <!-- <p class="card-text">Date: {{ result.dates | date:'shortDate' }}</p> -->
+          <p class="card-text">Total Coach: {{ result.totalCoach }}</p>
+          <p class="card-text">Seats in Sleeper Class: {{ result.seatsInSleeperClass }}</p>
+          <p class="card-text">Seats in First Class: {{ result.seatsInFirstClassClass }}</p>
+          <p class="card-text">Seats in Second Class: {{ result.seatsInSecondClassClass }}</p>
+          <p class="card-text">Seats in Third Class: {{ result.seatsInThirdClassClass }}</p>
+          <p class="card-text">Price for First Class :{{result.firstClassPrice}}</p>
+          <p class="card-text">Price for Second Class: {{ result.secondClassPrice }}</p>
+          <p class="card-text">Price for Third Class: {{ result.thirdClassPrice }}</p>
+          <p class="card-text">Price for Sleeper Coach :{{result.sleeperCoachPrice}}</p>
+          <!-- Add more properties as needed -->
+  
+          <button class="btn btn-primary mt-3 btn-block" (click)="bookTrain(result)">Book Now</button>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="!searchResults || searchResults.length === 0">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">No Data Found</h5>
+              <p class="card-text">Sorry, there is no data available at the moment.</p>
+              <button routerLink="/" mat-raised-button color="primary" type="submit">Go Back</button>
+            </div>
+          </div>
+    </div>
+  </div>
+  

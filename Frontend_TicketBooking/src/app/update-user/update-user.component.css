@@ -1,0 +1,52 @@
+/* train-form.component.css */
+
+.form-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    padding-top: 30px;
+   margin-top: 2%;
+   margin-bottom: 2%;
+    left: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    color: black;
+    font-size: 30px;
+
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .buttons-row {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  h2{
+    margin-top: 20px;
+    text-align: center;
+  }
+  input.mat-mdc-input-element::-webkit-calendar-picker-indicator {
+    display: block;
+
+  }
+  .form-field input{
+    width: 100%;
+    margin-bottom: 4px;
+    font-size: 15px;
+    box-sizing: border-box;
+    opacity: 1; /* Font opacity */
+  }
